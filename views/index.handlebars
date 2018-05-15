@@ -5,7 +5,7 @@
 <ul>
   {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
+      {{> burger-block devoured=true}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -15,7 +15,7 @@
 <ul>
   {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
+      {{> burger-block devoured=false}}
     {{/if}}
   {{/each}}
 </ul>
@@ -36,6 +36,8 @@
 
   <button type="submit">Add Burger</button>
 </form>
+
+
 {{!-- <script type="text/javascript">
 $(function() {
     $(".change-state").on("click", function(event) {
@@ -98,3 +100,51 @@ $(function() {
   });
 
 </script> --}}
+
+
+{{!-- <h1>Burgerizer</h1>
+
+<ul>
+  {{#each burgers}}
+  <li>
+    <p>
+      {{this.id}}. {{this.name}}
+
+      <button data-nameid="{{this.id}}" class="delburger">Delete Name!</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+
+<h2>Create a Burger</h2>
+<form id="createburger" class="button-size">
+  <textarea type="text" name="name"></textarea>
+  <button type="submit">Save Name!</button>
+</form>
+
+<h2>Update a Burger Name</h2>
+<form id="updateburger" class="button-size">
+  <select name="id">
+		{{#each burgers}}
+			<option value="{{this.id}}">{{this.name}}</option>
+		{{/each}}
+	</select>
+  <textarea type="text" name="name" placeholder="name"></textarea>
+  <button type="submit">Update Name!</button>
+</form>
+<script type="text/javascript">
+  $(".delburger").on("click", function(event) {
+    var id = $(this).data("nameid");
+
+    // Send the DELETE request.
+    $.ajax("/burgers/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted id ", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+  </script> --}}
