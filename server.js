@@ -31,3 +31,4 @@ app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
 });
 
+//app is the object and use is the key on the object. this is an express feature
